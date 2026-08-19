@@ -38,4 +38,13 @@ public class LivroRepository {
         livros.put(id, livroAtualizado);
         return livroAtualizado;
     }
+
+    public boolean existeIsbn(String isbn){
+        for(Livro livro : livros.values()){
+            if (livro.getIsbn().equals(isbn)){
+                return true;
+            }
+        }
+        return false;
+    }
 }
