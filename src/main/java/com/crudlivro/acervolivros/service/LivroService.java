@@ -45,5 +45,13 @@ public class LivroService {
         repository.deletar(id);
     }
 
+    public Livro atualizar(Long id, Livro livro){
+        Livro livroAtualizado = repository.buscarPorId(id);
+        if(livroAtualizado == null){
+            throw new LivroNaoEncontradoException("Livro não encontrado");
+        }
+        return repository.atualizar(id, livro);
+    }
+
 
 }
