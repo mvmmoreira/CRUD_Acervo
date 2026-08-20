@@ -1,9 +1,12 @@
 package com.crudlivro.acervolivros.service;
 
 import com.crudlivro.acervolivros.exception.LivroJaExisteException;
+import com.crudlivro.acervolivros.exception.LivroNaoEncontradoException;
 import com.crudlivro.acervolivros.model.Livro;
 import com.crudlivro.acervolivros.repository.LivroRepository;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 
 @Service
@@ -21,4 +24,13 @@ public class LivroService {
 
         return repository.salvar(livro);
     }
+
+    public Livro buscar(Long id){
+        Livro livro = repository.buscarPorId(id);
+        if(livro == null){
+            throw new LivroNaoEncontradoException("Livro não cadastrado");
+        }
+        return livro;
+    }
+    
 }
