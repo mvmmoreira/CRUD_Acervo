@@ -37,7 +37,13 @@ public class LivroService {
         return repository.listarTodos();
     }
 
-    
+    public void remover(Long id){
+        Livro livro = repository.buscarPorId(id);
+        if(livro == null){
+            throw new LivroNaoEncontradoException("Livro não cadastrado");
+        }
+        repository.deletar(id);
+    }
 
 
 }
