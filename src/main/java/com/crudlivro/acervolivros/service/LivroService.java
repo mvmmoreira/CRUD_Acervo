@@ -32,5 +32,12 @@ public class LivroService {
         }
         return livro;
     }
+
+    public List<Livro> listar(){
+        return repository.listarTodos();
+    }
+
     
+
+
 }
