@@ -30,4 +30,9 @@ public class LivroController {
         return service.listar();
     }
 
+    @GetMapping("/{id}")
+    public Livro buscar(@PathVariable Long id){
+        return service.buscar(id);
+    }
+
 }
