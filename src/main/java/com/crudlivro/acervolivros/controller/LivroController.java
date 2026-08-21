@@ -5,6 +5,7 @@ import com.crudlivro.acervolivros.service.LivroService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -33,6 +34,11 @@ public class LivroController {
     @GetMapping("/{id}")
     public Livro buscar(@PathVariable Long id){
         return service.buscar(id);
+    }
+
+    @PutMapping("/{id}")
+    public Livro atualizar(@PathVariable Long id, @RequestBody Livro livro){
+        return service.atualizar(id, livro);
     }
 
 }
