@@ -17,7 +17,7 @@ public class LivroService {
         this.repository = repository;
     }
 
-    public Livro cadastar(Livro livro){
+    public Livro cadastrar(Livro livro){
         if(repository.existeIsbn(livro.getIsbn())){
             throw new LivroJaExisteException("Impossivél cadastrar um livro existente");
         }
