@@ -2,6 +2,7 @@ package com.crudlivro.acervolivros.controller;
 
 import com.crudlivro.acervolivros.model.Livro;
 import com.crudlivro.acervolivros.service.LivroService;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,6 +40,11 @@ public class LivroController {
     @PutMapping("/{id}")
     public Livro atualizar(@PathVariable Long id, @RequestBody Livro livro){
         return service.atualizar(id, livro);
+    }
+
+    @DeleteMapping("/{id}")
+    public void remover(@PathVariable Long id){
+        service.remover(id);
     }
 
 }
